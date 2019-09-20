@@ -1,0 +1,56 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+
+library(dplyr)
+tabla<-read.csv("Objetos.csv",fileEncoding = "UTF-8" )
+tabla
+
+```
+
+```{r}
+nrow(tabla)
+```
+
+```{r}
+
+nrow(filter(tabla, Grande == "TRUE"))
+
+```
+
+```{r}
+
+sum(is.na(tabla))
+
+```
+
+```{r}
+tabla_completa <- tabla[complete.cases(tabla$Magnitud),]
+tablaincompleta <- tabla[!complete.cases(tabla),]
+
+tabla_completa
+
+```
+
+```{r}
+
+mean((tabla[complete.cases(tabla$Magnitud),])$Magnitud)
+
+```
+```{r}
+table(tablaincompleta$Magnitud)
+
+```
+```{r}
+
+summary(tabla)
+```
+
+```{r}
+length(table(tabla_completa$Magnitud))
+```
+
