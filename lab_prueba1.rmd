@@ -5,6 +5,7 @@ output: html_notebook
 
 
 ```{r}
+library(dplyr)
 musica <- read.csv("musica.csv")
 
 musica
@@ -104,7 +105,29 @@ max_pais<- which.max(musica$Descargas)
 musica[max_pais,2]
 ```
 ```{r}
-grep("Despacito" , musica$Cancion)
+data_despacito <- subset(musica, regexpr("Despacito", musica$Cancion) > 0)
+summary(data_despacito)
 ```
 
+
+
+
+```{r}
+tabla_salsa <- filter(musica, Cancion =="Despacito - VersiÃ³n Salsa")
+
+max_pais_des<- which.max(tabla_salsa$Descargas)
+tabla_salsa[max_pais_des,6]
+```
+```{r}
+peru <-  filter(musica, Cancion =="Despacito - VersiÃ³n Salsa" & Pais == "pe")
+mean(peru$Descargas)
+```
+```{r}
+max_per<- which.max(peru$Descargas)
+tabla_salsa[max_pais_des,1]
+```
+
+```{r}
+summary(peru)
+```
 
