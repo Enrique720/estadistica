@@ -131,3 +131,21 @@ tabla_salsa[max_pais_des,1]
 summary(peru)
 ```
 
+```{r}
+hist(musica$Descargas)
+```
+```{r}
+mean(musica$Descargas)
+
+```
+
+```{r}
+any(is.na(musica$Descargas))
+```
+
+```{r}
+plot(musica$Fecha,musica$Descargas)
+
+```
+
+
