@@ -1,0 +1,75 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+
+library(dplyr)
+tabla <- read.csv("Anchoveta_07_17.csv",fileEncoding =  "UTF-8")
+
+tabla
+
+```
+
+```{r}
+
+length(levels(tabla$Barco))
+
+```
+
+```{r}
+summary(tabla)
+
+```
+
+```{r}
+
+nrow(tabla[complete.cases(tabla$Barco),]) / 18
+
+```
+```{r}
+
+nrow(filter(tabla, Sexo == "Hembra"))
+```
+```{r}
+x <- (8200*100)/22000
+x
+```
+```{r}
+nrow(filter(tabla, Estacion == "Invierno" ))
+```
+
+```{r}
+nrow(filter(tabla, Estacion == "Invierno" & Sexo =="Hembra" ))
+```
+```{r}
+
+y <- (3615*100)/11000
+y
+```
+```{r}
+median(tabla$Largo)
+```
+```{r}
+sd(tabla$Largo)
+```
+
+```{r}
+IQR(tabla$Peso)
+```
+
+```{r}
+Frecuencias<-table(cut(tabla$Peso,breaks=seq(from=0,to=250,by=10)))
+Frecuencias
+
+
+```
+
+
+```{r}
+sd(tabla$Peso)/mean(tabla$Peso)
+```
+
+
