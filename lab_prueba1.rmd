@@ -1,1 +1,110 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+musica <- read.csv("musica.csv")
+
 musica
+
+```
+```{r}
+
+sum(!complete.cases(musica))
+
+```
+
+```{r}
+
+nrow(musica)
+
+```
+
+```{r}
+summary(musica)
+```
+
+
+```{r}
+
+sd(musica$Descargas)
+
+```
+
+```{r}
+levels(musica$Pais)
+```
+```{r}
+
+mean((musica[complete.cases(musica$Descargas),])$Descargas)
+
+
+
+```
+```{r}
+
+min((musica[complete.cases(musica$Descargas),])$Descargas)
+
+```
+
+```{r}
+median((musica[complete.cases(musica$Descargas),])$Descargas)
+```
+
+
+```{r}
+sd(musica$Descargas)/mean((musica[complete.cases(musica$Descargas),])$Descargas)
+```
+```{r}
+
+max((musica[complete.cases(musica$Descargas),])$Descargas)
+
+```
+```{r}
+nrow(filter(musica, Pais!="global"))
+```
+```{r}
+nrow(filter(musica, Pais=="global"))
+```
+
+```{r}
+max_pais<- which.max(musica$Descargas)
+max_pais
+
+```
+
+```{r}
+
+music_singlobla <- filter(musica, Pais != "global")
+
+```
+```{r}
+max_pais<- which.max(music_singlobla$Descargas)
+```
+
+```{r}
+music_singlobla[max_pais,1:6]
+```
+```{r}
+min_pais <- which.min(music_singlobla$Descargas)
+min_pais
+```
+
+```{r}
+music_singlobla[min_pais,1:6]
+```
+```{r}
+table(musica$Fecha)
+```
+
+```{r}
+max_pais<- which.max(musica$Descargas)
+musica[max_pais,2]
+```
+```{r}
+grep("Despacito" , musica$Cancion)
+```
+
+
